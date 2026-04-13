@@ -1,0 +1,34 @@
+@use "@/styles/atomStyle";
+
+.enter-mode {
+  width: 100%;
+  @include atomStyle.columnStart;
+  gap: 0.5rem;
+  color: white;
+  margin-top: 2rem;
+}
+
+.enter-mode-way {
+  position: relative;
+  @include atomStyle.flexCenter;
+  gap: 0.7rem;
+  width: 80%;
+  padding: 0.8rem;
+  border-radius: 999px;
+  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.enter-mode-way-icon,
+.enter-mode-way-name {
+  @include atomStyle.flexCenter;
+  height: 1.8rem;
+  transform: translate(0, -0.4rem);
+}
+
+.enter-mode-way-tip {
+  color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  bottom: 2px;
+  font-size: 0.7rem;
+}

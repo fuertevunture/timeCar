@@ -1,0 +1,13 @@
+---
+description: React / TypeScript 编码约定
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# React 与 TypeScript
+
+- 使用函数组件与 Hooks；页面/布局组件可按现有文件使用默认导出（`export default`）。
+- 优先显式标注对外 props 与复杂局部类型；避免 `any`。
+- 副作用放在 `useEffect`，依赖数组写完整；与路由、`Swiper` 实例同步时注意避免无限 `navigate` 循环（可用 ref 标志位，参考 `MainLayout`）。
+- 列表渲染使用稳定 `key`（例如路径常量，勿用数组下标作为唯一依据若顺序会变）。
+- 保持与 ESLint / `tsc` 一致：未使用变量会报错，删除死代码或加合理前缀。

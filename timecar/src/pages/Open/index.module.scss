@@ -1,0 +1,174 @@
+.root {
+  position: relative;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: clamp(5.5rem, 13vh, 8rem) clamp(1.6rem, 8vw, 2.8rem) max(2.4rem, env(safe-area-inset-bottom));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:
+    radial-gradient(72rem 72rem at 96% 102%, rgba(255, 184, 103, 0.78) 0%, rgba(255, 184, 103, 0) 50%),
+    radial-gradient(40rem 40rem at 12% 10%, rgba(128, 66, 255, 0.65) 0%, rgba(128, 66, 255, 0) 56%),
+    linear-gradient(164deg, #8b2ad6 0%, #dc3d9d 48%, #ee6a8c 76%, #f59d66 100%);
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.58) 0.6px, transparent 0.7px),
+    radial-gradient(rgba(255, 255, 255, 0.5) 0.6px, transparent 0.7px);
+  background-position:
+    0 0,
+    14px 16px;
+  background-size:
+    22px 22px,
+    22px 22px;
+}
+
+.lead {
+  margin: 0;
+  max-width: 20rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.12rem, 4.6vw, 1.5rem);
+  line-height: 1.7;
+  font-family: "Noto Serif SC", "STSong", serif;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-shadow: 0 3px 10px rgba(141, 43, 113, 0.25);
+}
+
+.triggerArea {
+  position: relative;
+  margin-top: clamp(2.2rem, 8vh, 4rem);
+  width: min(92vw, 28rem);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+}
+
+.outerDash {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3px dashed rgba(255, 225, 236, 0.38);
+}
+
+.outerRing {
+  position: absolute;
+  width: 63%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 232, 241, 0.28);
+  background: rgba(255, 197, 224, 0.1);
+  backdrop-filter: blur(0.5px);
+}
+
+.innerRing {
+  position: absolute;
+  width: 42%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 236, 245, 0.35);
+}
+
+.ribbon {
+  position: absolute;
+  top: 23.8%;
+  right: 21.5%;
+  color: rgba(255, 240, 245, 0.82);
+  font-family: "KaiTi", "STKaiti", cursive;
+  font-size: clamp(1.05rem, 4vw, 1.48rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transform: rotate(-8deg);
+  text-shadow: 0 2px 6px rgba(128, 38, 109, 0.3);
+}
+
+.triggerButton {
+  position: relative;
+  width: 38%;
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 245, 249, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.34rem;
+  cursor: pointer;
+  transition: transform 200ms ease, opacity 200ms ease;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.92;
+  }
+}
+
+.fingerprint {
+  width: clamp(1.5rem, 6.8vw, 2.05rem);
+  height: clamp(1.5rem, 6.8vw, 2.05rem);
+}
+
+.triggerLabel {
+  font-size: clamp(1rem, 3.8vw, 1.25rem);
+  line-height: 1.45;
+  font-family: "Noto Serif SC", "STSong", serif;
+  text-align: center;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.72rem;
+}
+
+.swipeHint {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: rgba(255, 235, 244, 0.52);
+}
+
+.chevrons {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.12rem;
+
+  i {
+    width: 0.64rem;
+    height: 0.64rem;
+    border-top: 2px solid rgba(255, 237, 245, 0.66);
+    border-left: 2px solid rgba(255, 237, 245, 0.66);
+    transform: rotate(45deg);
+  }
+}
+
+.glassCard {
+  position: absolute;
+  right: -0.75rem;
+  bottom: 2rem;
+  width: 7rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.15rem;
+  background: linear-gradient(
+    148deg,
+    rgba(255, 235, 200, 0.28),
+    rgba(255, 212, 174, 0.1)
+  );
+  border: 1px solid rgba(255, 240, 223, 0.2);
+  transform: rotate(8deg);
+}

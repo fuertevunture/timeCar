@@ -1,0 +1,70 @@
+@use "@/styles/atomStyle";
+
+.enter {
+  position: relative;
+  @include atomStyle.columnStart;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.enter-back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.enter-back-line-one,
+.enter-back-line-two,
+.enter-back-line-three,
+.enter-back-line-four {
+  position: absolute;
+  width: 120vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(20vw);
+  animation: flow 8s infinite ease-in-out;
+}
+
+.enter-back-line-one {
+  top: -5vh;
+  right: 10vw;
+  background: #8972da;
+}
+
+.enter-back-line-two {
+  top: 20vh;
+  left: 20vw;
+  background: #f8a5e8;
+}
+
+.enter-back-line-three {
+  top: 40vh;
+  right: 35vw;
+  background: #d4a574;
+}
+
+.enter-back-line-four {
+  top: 60vh;
+  right: 8vw;
+  background: #f97316;
+}
+
+@keyframes flow {
+  0%,
+  100% {
+    transform: none;
+  }
+  25% {
+    transform: translate(25vw, 5vh);
+  }
+  50% {
+    transform: translate(-15vw, 5vh);
+  }
+  75% {
+    transform: translate(-15vw, -10vh);
+  }
+}

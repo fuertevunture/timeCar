@@ -1,0 +1,31 @@
+@use "@/styles/atomStyle";
+
+.enter-load {
+  color: white;
+  @include atomStyle.columnStart;
+}
+
+.enter-load-process {
+  margin: 0.25rem 0 0;
+  font-family: "Baskerville Old Face";
+  font-size: clamp(1.6rem, 5vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.enter-load-process-tip {
+  font-family: Serif;
+  font-size: 0.6rem;
+}
+
+.enter-load-line {
+  width: min(250px, 70vw);
+  height: 3px;
+  margin: 0.85rem auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+}

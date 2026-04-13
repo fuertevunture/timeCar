@@ -1,0 +1,11 @@
+---
+description: Sass 样式与组件同目录约定
+globs: "**/*.scss"
+alwaysApply: false
+---
+
+# Sass
+
+- 样式与组件同目录：例如 `MainLayout/index.scss` 对应 `MainLayout/index.tsx`。
+- 在 TSX 中按需引入：`import "./index.scss"`（或项目内已有路径）。
+- 类名与 Swiper 结构保持一致时，优先使用语义化命名（如 `main-swiper`、`main-swiper-slide`），避免全局污染；需要覆盖 Swiper 默认样式时作用域尽量收窄。

@@ -1,0 +1,31 @@
+---
+description: timecar 项目结构与路由/幻灯片约定（始终应用）
+alwaysApply: true
+---
+
+# timecar 项目约定
+
+- **栈**：Vite 8、React 19、TypeScript（`tsconfig.app.json`）、React Router 7、Swiper 12、Sass。
+- **路径别名**：使用 `@/` 指向 `src/`（例如 `@/pages/Home`、`@/app/slideRegistry`）。
+- **目录**：页面在 `src/pages/<Name>/`，布局在 `src/layouts/<Name>/`，路由配置在 `src/route/`。
+- **纵向全屏 Swiper 与路由同步**：新增或调整幻灯片页面时，在 `src/app/slideRegistry.ts` 的 `SLIDE_REGISTRY` 中追加一条（`segment` + `loader`）；`ORDERED_PATHS`、`LAZY_SLIDES`、`slideChunks` 与 `routes.tsx` 子路由由派生自动生成；`MainLayout` 对邻域 chunk 做 `void import()` 预取。
+- **TypeScript**：`verbatimModuleSyntax` 已开启，类型请使用 `import type` 单独导入。
+
+# 命名约定
+- 文件名：组件用 PascalCase（`UserProfile.tsx`），工具函数用 camelCase（`formatDate.ts`）。
+- 组件名：PascalCase。
+- 变量/函数：camelCase。
+- 常量：UPPER_SNAKE_CASE。
+- 类型/接口：PascalCase，接口不加 `I` 前缀，类型别名用 `T` 前缀可选。
+- 布尔值变量：使用 `is`/`has`/`should` 前缀（`isLoading`）。
+
+# 注释与文档
+- 复杂业务逻辑必须写注释，解释“为什么”而非“做什么”。
+- 导出函数/组件使用 JSDoc 风格注释，描述参数和返回值。
+- 禁止无意义的注释（如 `// 设置名字` 对应 `setName`）。
+
+# 导入顺序
+1. 第三方库（React, axios 等）
+2. 内部模块（@/ 或相对路径）
+3. 样式文件（CSS modules / styled-components）
+4. 类型导入（使用 `import type`）

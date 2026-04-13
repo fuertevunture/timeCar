@@ -1,0 +1,33 @@
+@use "@/styles/atomStyle";
+
+.enter-header {
+  width: 100%;
+  padding-top: 2rem;
+  @include atomStyle.columnStart;
+  color: white;
+}
+
+.enter-header-title {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(1.8rem, 6vw, 2.2rem);
+  font-weight: bold;
+  letter-spacing: 0.38em;
+  text-align: center;
+  text-indent: 0.38em;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+
+.enter-header-name,
+.enter-header-subtitle {
+  margin: 0.25rem 0 0;
+  font-family: "Ma Shan Zheng", "KaiTi", serif;
+  font-size: clamp(1.2rem, 5vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  opacity: 0.95;
+}
+
+.enter-header-subtitle {
+  margin-top: 2.5rem;
+}

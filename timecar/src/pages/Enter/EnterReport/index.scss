@@ -1,0 +1,80 @@
+.hero {
+  position: relative;
+  width: min(72vw, 240px);
+  aspect-ratio: 1;
+  margin: 0.5rem clamp(1rem, 3vh, 1.75rem);
+  flex-shrink: 0;
+  color: white;
+}
+
+.clockRing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+.cardStack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.card {
+  position: absolute;
+  width: 46%;
+  aspect-ratio: 3 / 4;
+  background: #fffaf0;
+  border-radius: 4px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  /* 由动画收敛到各卡片目标透明度，避免与 @keyframes 终点冲突 */
+  --card-opacity: 1;
+  opacity: 0;
+  animation: cardAppear 3s ease-out both;
+  text-indent: 1rem;
+
+  &:nth-child(1) {
+    --card-opacity: 0.6;
+    animation-delay: 0s;
+    transform: translate(-18%, 0%) rotate(-18deg);
+  }
+
+  &:nth-child(2) {
+    --card-opacity: 0.7;
+    animation-delay: 1.5s;
+    transform: translate(-8%, 2%) rotate(-12deg);
+  }
+
+  &:nth-child(3) {
+    --card-opacity: 0.8;
+    animation-delay: 3s;
+    transform: translate(0%, 4%) rotate(-6deg);
+  }
+
+  &:nth-child(4) {
+    --card-opacity: 0.9;
+    animation-delay: 5.5s;
+    transform: translate(8%, 6%) rotate(4deg);
+  }
+
+  &:nth-child(5) {
+    --card-opacity: 1;
+    animation-delay: 7s;
+    transform: translate(14%, 8%) rotate(18deg);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: var(--card-opacity);
+  }
+}
