@@ -5,6 +5,6 @@ const userController = require('../controllers/userController');
 /* GET users listing. */
 router.get('/', userController.getAllUsers);
 
-router.get('/exist');
+router.get('/exist',userController.checkUserExist);
 
 module.exports = router;
