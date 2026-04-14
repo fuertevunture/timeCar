@@ -7,10 +7,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background:
-    radial-gradient(72rem 72rem at 96% 102%, rgba(255, 184, 103, 0.78) 0%, rgba(255, 184, 103, 0) 50%),
-    radial-gradient(40rem 40rem at 12% 10%, rgba(128, 66, 255, 0.65) 0%, rgba(128, 66, 255, 0) 56%),
-    linear-gradient(164deg, #8b2ad6 0%, #dc3d9d 48%, #ee6a8c 76%, #f59d66 100%);
+  //background:
+  //  radial-gradient(72rem 72rem at 96% 102%, rgba(255, 184, 103, 0.78) 0%, rgba(255, 184, 103, 0) 50%),
+  //  radial-gradient(40rem 40rem at 12% 10%, rgba(128, 66, 255, 0.65) 0%, rgba(128, 66, 255, 0) 56%),
+  //  linear-gradient(164deg, #8b2ad6 0%, #dc3d9d 48%, #ee6a8c 76%, #f59d66 100%);
+
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("@/assets/images/begin.png");
+  background-size: cover;
+  filter: blur(4px);
+  z-index: -1;
 }
 
 .noise {

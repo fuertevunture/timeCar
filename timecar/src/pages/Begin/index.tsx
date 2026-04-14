@@ -1,7 +1,10 @@
 import "./index.scss";
+import BeginHeader from "@/pages/Begin/BeginHeader";
 
 function Begin() {
-  return <></>;
+    return <div className="begin">
+        <BeginHeader/>
+    </div>;
 }
 
 export default Begin;
