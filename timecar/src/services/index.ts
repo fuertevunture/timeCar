@@ -8,10 +8,10 @@ const checkExistRequest = async (userInfo:any) => {
     })
 }
 
-const getAllRequest = async () => {
+const getAllRequest = async (no:string) => {
     return await webMan.get('/all',{
         params: {
-            no: "21"
+            no: no
         }
     });
 }

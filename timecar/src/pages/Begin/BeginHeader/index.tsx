@@ -1,6 +1,7 @@
 import "./index.scss";
 
 function BeginHeader() {
+
   return (
     <div className="begin-header">
       <div className="begin-header-hello">Hi,好久不见！</div>

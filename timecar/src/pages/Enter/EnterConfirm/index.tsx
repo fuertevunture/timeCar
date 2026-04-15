@@ -3,7 +3,8 @@ import "./index.scss";
 import type {FormEvent} from "react";
 import {FingerprintIcon} from "@/assets/icons/EnterIcons.tsx";
 import {useNavigate} from "react-router-dom";
-import {checkExistRequest} from "@/services";
+import {checkExistRequest, getAllRequest} from "@/services";
+import useAllStore from "@/stores/all.ts";
 
 interface EnterConfirmProps {
     identity: string;
@@ -12,6 +13,8 @@ interface EnterConfirmProps {
 
 function EnterConfirm({identity, setIdentity}: EnterConfirmProps) {
     const navigate = useNavigate();
+
+    const setAll = useAllStore((state) => state.setAll);
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -26,8 +29,16 @@ function EnterConfirm({identity, setIdentity}: EnterConfirmProps) {
         }
         const result = await checkExistRequest(userInfo);
         if (result) {
+            await getAllData(result.data.user.no);
+            console.log(result);
             navigate("/open");
         }
+    }
+
+    async function getAllData(no:string){
+        const result = await  getAllRequest(no);
+        console.log(result);
+        setAll(result.data);
     }
 
     return (
