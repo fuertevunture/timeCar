@@ -1,0 +1,161 @@
+.open-capsule-wrap {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.open-capsule {
+  position: relative;
+  flex-shrink: 0;
+  width: min(62vw, 17.5rem);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  transform-origin: center center;
+  animation: open-capsule-float 5.5s ease-in-out infinite;
+}
+
+@keyframes open-capsule-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+.open-capsule-dash {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 2.5px dashed rgba(255, 255, 255, 0.24);
+  animation: open-capsule-dash-spin 42s linear infinite;
+}
+
+@keyframes open-capsule-dash-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.open-capsule-ring-outer {
+  position: absolute;
+  width: 63%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(0.5px);
+  animation: open-capsule-ring-pulse-out 3.2s ease-in-out infinite;
+}
+
+@keyframes open-capsule-ring-pulse-out {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.045); opacity: 0.85; }
+}
+
+.open-capsule-ring-inner {
+  position: absolute;
+  width: 42%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  animation: open-capsule-ring-pulse-in 2.7s ease-in-out 0.45s infinite;
+}
+
+@keyframes open-capsule-ring-pulse-in {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.07); }
+}
+
+.open-capsule-glow {
+  position: absolute;
+  width: 44%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(190, 225, 255, 0.3) 0%,
+    rgba(150, 200, 255, 0.15) 42%,
+    transparent 68%
+  );
+  animation: open-capsule-glow-pulse 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes open-capsule-glow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50%      { transform: scale(1.14); opacity: 1; }
+}
+
+.open-capsule-ribbon {
+  position: absolute;
+  top: 23.8%;
+  right: 18%;
+  color: rgba(235, 245, 255, 0.9);
+  font-family: "KaiTi", "STKaiti", cursive;
+  font-size: clamp(0.9rem, 3.6vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transform: rotate(-8deg);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  animation: open-capsule-ribbon-sway 5s ease-in-out infinite;
+}
+
+@keyframes open-capsule-ribbon-sway {
+  0%, 100% { transform: rotate(-8deg) translateX(0); }
+  50%      { transform: rotate(-11deg) translateX(3px); }
+}
+
+.open-capsule-btn {
+  position: relative;
+  z-index: 1;
+  width: 44%;
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(235, 245, 255, 0.96);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 180ms ease;
+
+  &:hover .open-capsule-btn-motion {
+    transform: scale(1.07);
+    animation-play-state: paused;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+
+  &:active .open-capsule-btn-motion {
+    transform: scale(0.96);
+    animation-play-state: paused;
+  }
+}
+
+.open-capsule-btn-motion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  animation: open-capsule-btn-breath 2.8s ease-in-out infinite;
+  transition: transform 200ms ease;
+  will-change: transform;
+}
+
+@keyframes open-capsule-btn-breath {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+
+.open-capsule-btn-label {
+  font-size: clamp(0.88rem, 3.4vw, 1.1rem);
+  line-height: 1.4;
+  font-family: "Noto Serif SC", "STSong", serif;
+  text-align: center;
+}

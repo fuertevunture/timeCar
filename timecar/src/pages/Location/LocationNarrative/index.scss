@@ -1,0 +1,65 @@
+.loc-narrative {
+  width: 100%;
+  max-width: 36rem;
+  margin-inline: auto;
+  padding: 0.45rem 0 0.2rem;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.loc-narrative-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 0.45rem;
+}
+
+.loc-narrative-icon {
+  font-size: 0.82rem;
+  color: #6366f1;
+}
+
+.loc-narrative-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #64748b;
+}
+
+.loc-narrative-text {
+  margin: 0;
+  font-family: "Noto Serif SC", "STSong", "PingFang SC", serif;
+  font-size: clamp(0.8rem, 3.25vw, 0.95rem);
+  line-height: 1.8;
+  color: rgba(30, 41, 59, 0.92);
+  letter-spacing: 0.02em;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.loc-narrative-char {
+  display: inline;
+  opacity: 0;
+  filter: blur(3px);
+  transition: opacity 0.3s ease-out, filter 0.3s ease-out;
+}
+
+.loc-narrative-char--visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.loc-narrative-note {
+  margin: 0.45rem 0 0;
+  font-size: 0.6rem;
+  color: #94a3b8;
+  text-align: center;
+  letter-spacing: 0.04em;
+}

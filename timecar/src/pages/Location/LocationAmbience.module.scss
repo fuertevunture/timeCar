@@ -1,0 +1,204 @@
+.root {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  flex-shrink: 0;
+  pointer-events: none;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  box-shadow:
+    0 4px 22px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.caption {
+  margin: 0;
+  padding: 0.45rem 0.65rem 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #64748b;
+  text-align: center;
+  text-transform: none;
+}
+
+.mapWrap {
+  position: relative;
+  width: 100%;
+  height: var(--loc-map-panel-h, 260px);
+  min-height: 200px;
+  max-height: 440px;
+  color: rgba(99, 102, 241, 0.11);
+}
+
+.chinaMap {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: blur(0.2px);
+}
+
+.mapFill {
+  opacity: 1;
+}
+
+.trajectory {
+  pointer-events: none;
+}
+
+.trajPath {
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.1));
+}
+
+.markerPast {
+  fill: rgba(255, 255, 255, 0.95);
+  stroke: rgba(99, 102, 241, 0.55);
+  stroke-width: 2;
+}
+
+.markerNow {
+  fill: rgba(255, 255, 255, 0.98);
+  stroke: rgba(14, 165, 233, 0.55);
+  stroke-width: 2;
+}
+
+.markerGhost {
+  fill: rgba(255, 255, 255, 0.55);
+  stroke: rgba(148, 163, 184, 0.65);
+  stroke-width: 1.8;
+  stroke-dasharray: 4 3;
+}
+
+.markerCap {
+  font-size: 11px;
+  font-weight: 600;
+  fill: rgba(51, 65, 85, 0.88);
+  font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+}
+
+.markerTxt {
+  font-size: 10px;
+  font-weight: 500;
+  fill: rgba(71, 85, 105, 0.92);
+  font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+}
+
+.distLabel {
+  font-size: 11px;
+  font-weight: 600;
+  fill: rgba(15, 23, 42, 0.88);
+  font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+}
+
+.planes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 0 0 14px 14px;
+  pointer-events: none;
+}
+
+.plane {
+  position: absolute;
+  color: rgba(79, 70, 229, 0.22);
+}
+
+.planeSvg {
+  width: clamp(18px, 5vw, 30px);
+  height: clamp(18px, 5vw, 30px);
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(15, 23, 42, 0.1));
+}
+
+.planeA {
+  left: -5%;
+  bottom: 6%;
+  animation: loc-plane-a 22s ease-in-out infinite;
+}
+
+.planeB {
+  left: -8%;
+  bottom: 38%;
+  animation: loc-plane-b 28s ease-in-out infinite 4s;
+  color: rgba(14, 165, 233, 0.18);
+}
+
+.planeC {
+  left: -12%;
+  bottom: 62%;
+  animation: loc-plane-c 19s ease-in-out infinite 9s;
+  color: rgba(99, 102, 241, 0.2);
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 0 0 14px 14px;
+  background:
+    radial-gradient(ellipse 50% 42% at 70% 32%, rgba(99, 102, 241, 0.07) 0%, transparent 58%),
+    radial-gradient(ellipse 45% 38% at 24% 58%, rgba(14, 165, 233, 0.05) 0%, transparent 52%);
+  animation: loc-glow-drift 16s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes loc-plane-a {
+  0% {
+    transform: translate(0, 0) rotate(-18deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.45;
+  }
+  94% {
+    opacity: 0.32;
+  }
+  100% {
+    transform: translate(100%, -55vh) rotate(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes loc-plane-b {
+  0% {
+    transform: translate(0, 0) rotate(-35deg) scale(0.92);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.34;
+  }
+  92% {
+    opacity: 0.28;
+  }
+  100% {
+    transform: translate(95%, -35vh) rotate(-35deg) scale(0.92);
+    opacity: 0;
+  }
+}
+
+@keyframes loc-plane-c {
+  0% {
+    transform: translate(0, 0) rotate(-8deg) scale(0.85);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.3;
+  }
+  95% {
+    opacity: 0.22;
+  }
+  100% {
+    transform: translate(90%, -70vh) rotate(-8deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes loc-glow-drift {
+  from {
+    transform: translate(-0.5%, -0.5%) scale(1);
+  }
+  to {
+    transform: translate(0.8%, 0.6%) scale(1.02);
+  }
+}

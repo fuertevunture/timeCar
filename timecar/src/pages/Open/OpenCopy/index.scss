@@ -1,0 +1,66 @@
+.open-copy {
+  margin: 0;
+  max-width: 22rem;
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.65rem, 2vh, 1.1rem);
+}
+
+.open-copy-line {
+  margin: 0;
+  color: rgba(220, 235, 255, 0.94);
+  font-size: clamp(0.92rem, 3.6vw, 1.18rem);
+  line-height: 1.85;
+  font-family: "Noto Serif SC", "STSong", serif;
+  text-align: left;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+  text-indent: 2em;
+}
+
+.open-copy-line--lead {
+  font-size: clamp(1.25rem, 5vw, 1.65rem);
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  text-indent: 0;
+  text-align: center;
+  margin-bottom: clamp(0.2rem, 0.8vh, 0.5rem);
+}
+
+.open-copy-line--closing {
+  text-indent: 0;
+  text-align: center;
+  margin-top: clamp(0.15rem, 0.6vh, 0.35rem);
+  font-style: italic;
+  color: rgba(200, 225, 255, 0.88);
+}
+
+.open-copy-em {
+  color: rgba(170, 220, 255, 1);
+  font-style: normal;
+  text-shadow: 0 0 8px rgba(120, 190, 255, 0.45);
+}
+
+.open-copy-em-num {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: rgba(255, 210, 120, 1);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px rgba(255, 195, 70, 0.5);
+}
+
+.open-copy-char {
+  display: inline;
+  opacity: 0;
+  filter: blur(3px);
+  transition: opacity 0.35s ease-out, filter 0.35s ease-out;
+}
+
+.open-copy-char--visible {
+  opacity: 1;
+  filter: blur(0);
+}

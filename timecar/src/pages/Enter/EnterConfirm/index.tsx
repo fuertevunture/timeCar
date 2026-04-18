@@ -14,7 +14,7 @@ interface EnterConfirmProps {
 function EnterConfirm({identity, setIdentity}: EnterConfirmProps) {
     const navigate = useNavigate();
 
-    const setAll = useAllStore((state) => state.setAll);
+    const setAll = useAllStore((state:any) => state.setAll);
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();

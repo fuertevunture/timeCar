@@ -16,10 +16,9 @@ export const PREFETCH_NEIGHBOR_RADIUS = 1;
 
 export const SLIDE_REGISTRY = [
   { segment: "home", loader: () => import("@/pages/Home") },
-  { segment: "surface", loader: () => import("@/pages/Surface") },
   { segment: "enter", loader: () => import("@/pages/Enter") },
   { segment: "open", loader: () => import("@/pages/Open") },
-  { segment: "begin", loader: () => import("@/pages/Begin") },
+  { segment: "location", loader: () => import("@/pages/Location") },
 ] as const satisfies readonly SlideDef[];
 
 export type SlidePath = `/${(typeof SLIDE_REGISTRY)[number]["segment"]}`;

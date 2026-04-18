@@ -1,0 +1,91 @@
+.open-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.open-atmosphere-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 35% at 15% 6%, rgba(160, 200, 240, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 30% at 85% 12%, rgba(130, 180, 230, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 35% at 65% 88%, rgba(255, 155, 70, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 15% 95%, rgba(255, 190, 90, 0.1) 0%, transparent 50%),
+    linear-gradient(
+      168deg,
+      #3b6a8c 0%,
+      #4a7da0 10%,
+      #5889a8 20%,
+      #3a6888 32%,
+      #264a6e 42%,
+      #162e52 52%,
+      #111d3e 62%,
+      #0d1530 76%,
+      #0a0d22 100%
+    );
+}
+
+.open-atmosphere-stars {
+  position: absolute;
+  inset: 0;
+}
+
+.open-atmosphere-star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  animation: open-atmosphere-star-twinkle var(--star-dur, 3.5s) ease-in-out var(--star-delay, 0s) infinite;
+}
+
+@keyframes open-atmosphere-star-twinkle {
+  0%, 100% { opacity: var(--star-min, 0.2); }
+  50%      { opacity: var(--star-max, 0.9); }
+}
+
+.open-atmosphere-snow {
+  --snow-drift: 12px;
+  position: absolute;
+  top: -5vh;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 32% 28%,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.5) 55%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+  animation-name: open-atmosphere-snow-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.open-atmosphere-firefly {
+  --ff-drift: 20px;
+  position: absolute;
+  top: -8vh;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 228, 120, 0.95) 0%, rgba(255, 210, 80, 0.4) 55%, transparent 75%);
+  box-shadow: 0 0 6px 2px rgba(255, 220, 90, 0.55);
+  animation-name: open-atmosphere-firefly-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes open-atmosphere-snow-fall {
+  0%   { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(calc(-50% + var(--snow-drift)), 120vh, 0); }
+}
+
+@keyframes open-atmosphere-firefly-float {
+  0%   { transform: translate3d(-50%, 0, 0);                                   opacity: 0.3; }
+  15%  { transform: translate3d(calc(-50% + var(--ff-drift) * 0.35), 12vh, 0); opacity: 0.85; }
+  40%  { transform: translate3d(calc(-50% + var(--ff-drift) * -0.2), 32vh, 0); opacity: 0.45; }
+  60%  { transform: translate3d(calc(-50% + var(--ff-drift) * 0.5), 52vh, 0);  opacity: 0.9; }
+  80%  { transform: translate3d(calc(-50% + var(--ff-drift) * -0.1), 72vh, 0); opacity: 0.35; }
+  100% { transform: translate3d(calc(-50% + var(--ff-drift)), 98vh, 0);        opacity: 0.15; }
+}

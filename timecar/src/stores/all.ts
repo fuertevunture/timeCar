@@ -34,11 +34,13 @@ interface All {
     feedback: string;
     email: string;
     phone: string;
+    /** 定位失败时用户手动填写的当前城市（会话内临时字段，可与问卷数据合并保存） */
+    currentAddress?: string;
 }
 
 const useAllStore = create((set) => ({
-    all: {},
-    setAll: (newALl: All) => set((state: any) => ({
+    all: {} as Partial<All>,
+    setAll: (newALl: Partial<All>) => set((state: { all: Partial<All> }) => ({
         all: {...state.all, ...newALl,},
     }))
 }))
